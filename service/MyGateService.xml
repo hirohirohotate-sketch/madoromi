@@ -1,0 +1,16 @@
+<service>
+  <id>WakeDockGate</id>
+  <name>wake-dock Gate</name>
+  <description>Local gate that starts Docker child containers on demand.</description>
+
+  <executable>python</executable>
+  <arguments>gate.py</arguments>
+  <workingdirectory>%BASE%</workingdirectory>
+
+  <log mode="roll-by-size" />
+
+  <onfailure action="restart" delay="5 sec" />
+
+  <env name="HOST_PORT" value="8080" />
+  <env name="IDLE_SWEEP_SEC" value="1" />
+</service>

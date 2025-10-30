@@ -1,0 +1,33 @@
+[
+  {
+    "match": { "method": "POST", "path": "/asr" },
+    "target": {
+      "group": "media-asr",
+      "image": "plugins-whisperer:latest",
+      "port": 9090,
+      "health": "/__health",
+      "idle": 300,
+      "volumes": ["whisper_cache:/root/.cache/whisper"]
+    }
+  },
+  {
+    "match": { "method": "POST", "path": "/subs/tidy" },
+    "target": {
+      "group": "media-subtidy",
+      "image": "plugins-subtidy:latest",
+      "port": 9090,
+      "health": "/__health",
+      "idle": 180
+    }
+  },
+  {
+    "match": { "method": "POST", "path": "/subs/burn" },
+    "target": {
+      "group": "media-burn",
+      "image": "plugins-sub-burner:latest",
+      "port": 9090,
+      "health": "/__health",
+      "idle": 180
+    }
+  }
+]
