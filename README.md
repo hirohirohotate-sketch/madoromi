@@ -106,8 +106,7 @@ python .\gate.py
 
 ## 📜 ライセンス
 
-MIT License  
-著作権表記と免責を残せば、商用・改変・再配布すべて自由です。
+Apache License 2.0
 
 ---
 
